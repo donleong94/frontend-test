@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:frontend_test/feature/main_home_screen.dart';
+import 'package:frontend_test/feature/screen/main_home_screen.dart';
 
 part 'app_router.gr.dart';
 
