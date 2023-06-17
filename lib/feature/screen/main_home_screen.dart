@@ -19,7 +19,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
       child: Scaffold(
         appBar: CustomAppBarWidget(
           titleText: "All Posts",
-          hasLeading: true,
+          hasLeading: false,
           isCenterTitle: true,
         ),
         body: MainHomeView(),

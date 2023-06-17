@@ -13,7 +13,7 @@ class AllPostsCubit extends Cubit<AllPostsState> {
 
   final PostRepository postRepository;
 
-  getAllPosts() async {
+  void getAllPosts() async {
     emit(
       state.copyWith(
         status: GeneralStatus.loading,

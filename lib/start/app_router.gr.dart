@@ -15,13 +15,61 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    IndividualPostRoute.name: (routeData) {
+      final args = routeData.argsAs<IndividualPostRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: IndividualPostScreen(
+          key: args.key,
+          postId: args.postId,
+        ),
+      );
+    },
     MainHomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const MainHomeScreen(),
       );
-    }
+    },
   };
+}
+
+/// generated route for
+/// [IndividualPostScreen]
+class IndividualPostRoute extends PageRouteInfo<IndividualPostRouteArgs> {
+  IndividualPostRoute({
+    Key? key,
+    required int postId,
+    List<PageRouteInfo>? children,
+  }) : super(
+          IndividualPostRoute.name,
+          args: IndividualPostRouteArgs(
+            key: key,
+            postId: postId,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'IndividualPostRoute';
+
+  static const PageInfo<IndividualPostRouteArgs> page =
+      PageInfo<IndividualPostRouteArgs>(name);
+}
+
+class IndividualPostRouteArgs {
+  const IndividualPostRouteArgs({
+    this.key,
+    required this.postId,
+  });
+
+  final Key? key;
+
+  final int postId;
+
+  @override
+  String toString() {
+    return 'IndividualPostRouteArgs{key: $key, postId: $postId}';
+  }
 }
 
 /// generated route for

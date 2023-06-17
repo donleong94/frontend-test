@@ -6,6 +6,7 @@ import 'package:frontend_test/core/widget/post_item_list_widget.dart';
 import 'package:frontend_test/feature/bloc_cubit/all_posts_cubit.dart';
 import 'package:frontend_test/network/repository/post_repository.dart';
 import 'package:frontend_test/start/service_locator.dart';
+import 'package:loader_overlay/loader_overlay.dart';
 
 class MainHomeView extends StatefulWidget {
   const MainHomeView({super.key});
@@ -33,7 +34,13 @@ class _MainHomeViewState extends State<MainHomeView> {
       },
       child: BlocConsumer<AllPostsCubit, AllPostsState>(
         bloc: allPostsCubit,
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state.status.isLoading()) {
+            context.loaderOverlay.show();
+          } else {
+            context.loaderOverlay.hide();
+          }
+        },
         builder: (context, state) {
           Widget contentWidget = Container();
 
